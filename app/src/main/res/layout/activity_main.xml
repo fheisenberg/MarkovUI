@@ -1,126 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FAFAFA">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:padding="16dp"
+    <!-- Toolbar superior -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#074E99"
+        android:title="Markov UIs"
+        android:titleTextColor="@android:color/white" />
 
-        <TextView
-            android:id="@+id/tvGreeting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="¡Bienvenido a MiRutina!"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:paddingBottom="12dp"
-            android:textColor="#333"/>
+    <!-- Contenido principal -->
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="#FAFAFA">
 
-        <!-- Card Inicio -->
         <LinearLayout
             android:orientation="vertical"
-            android:background="#E3F2FD"
             android:padding="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:backgroundTint="#E3F2FD"
-            android:elevation="4dp">
+            android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/tvGreeting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Inicio"
-                android:textSize="18sp"
+                android:text="¡Bienvenido a MiRutina!"
+                android:textSize="22sp"
                 android:textStyle="bold"
-                android:textColor="#0D47A1" />
+                android:paddingBottom="12dp"
+                android:textColor="#333"/>
 
-            <TextView
+            <!-- Card Inicio -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="#E3F2FD"
+                android:padding="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Consulta tu resumen diario y clima actual."
-                android:textColor="#333"
-                android:paddingTop="4dp"/>
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#E3F2FD"
+                android:elevation="4dp">
 
-            <Button
-                android:id="@+id/btnHome"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Inicio"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#0D47A1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Consulta tu resumen diario y clima actual."
+                    android:textColor="#333"
+                    android:paddingTop="4dp"/>
+
+                <Button
+                    android:id="@+id/btnHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:textColor="#FFFFFF"
+                    android:text="Inicio"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <!-- Card Perfil -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="#E8F5E9"
+                android:padding="16dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ir a Inicio"
-                android:layout_gravity="end"
-                android:layout_marginTop="8dp" />
+                android:layout_marginBottom="12dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Perfil"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#1B5E20" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Revisa tus hábitos y progreso personal."
+                    android:textColor="#333"
+                    android:paddingTop="4dp"/>
+
+                <Button
+                    android:id="@+id/btnProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:textColor="#FFFFFF"
+                    android:text="Perfil"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <!-- Card Configuración -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="#FFF3E0"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Configuración"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#E65100" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ajusta tus preferencias y recordatorios."
+                    android:textColor="#333"
+                    android:paddingTop="4dp"/>
+
+                <Button
+                    android:id="@+id/btnSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:textColor="#FFFFFF"
+                    android:text="Configuración"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
         </LinearLayout>
-
-        <!-- Card Perfil -->
-        <LinearLayout
-            android:orientation="vertical"
-            android:background="#E8F5E9"
-            android:padding="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:elevation="4dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Perfil"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#1B5E20" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Revisa tus hábitos y progreso personal."
-                android:textColor="#333"
-                android:paddingTop="4dp"/>
-
-            <Button
-                android:id="@+id/btnProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ver Perfil"
-                android:layout_gravity="end"
-                android:layout_marginTop="8dp" />
-        </LinearLayout>
-
-        <!-- Card Configuración -->
-        <LinearLayout
-            android:orientation="vertical"
-            android:background="#FFF3E0"
-            android:padding="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:elevation="4dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Configuración"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#E65100" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ajusta tus preferencias y recordatorios."
-                android:textColor="#333"
-                android:paddingTop="4dp"/>
-
-            <Button
-                android:id="@+id/btnSettings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Abrir Configuración"
-                android:layout_gravity="end"
-                android:layout_marginTop="8dp" />
-        </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
