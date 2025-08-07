@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- Toolbar superior -->
     <androidx.appcompat.widget.Toolbar
@@ -11,7 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#074E99"
-        android:title="Markov UIs"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        android:theme="@style/ToolbarPopupTheme"
+        android:title="@string/app_name"
         android:titleTextColor="@android:color/white" />
 
     <!-- Contenido principal -->
@@ -31,7 +33,7 @@
                 android:id="@+id/tvGreeting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="¡Bienvenido a MiRutina!"
+                android:text="@string/bienvenido_a_mirutina"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:paddingBottom="12dp"
@@ -51,7 +53,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Inicio"
+                    android:text="@string/start_card_title"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#0D47A1" />
@@ -59,7 +61,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Consulta tu resumen diario y clima actual."
+                    android:text="@string/consulta_tu_resumen_diario_y_clima_actual"
                     android:textColor="#333"
                     android:paddingTop="4dp"/>
 
@@ -69,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_background"
                     android:textColor="#FFFFFF"
-                    android:text="Inicio"
+                    android:text="@string/start_card_button"
                     android:layout_gravity="end"
                     android:layout_marginTop="8dp" />
             </LinearLayout>
@@ -87,7 +89,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Perfil"
+                    android:text="@string/perfil"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#1B5E20" />
@@ -95,7 +97,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Revisa tus hábitos y progreso personal."
+                    android:text="@string/revisa_tus_h_bitos_y_progreso_personal"
                     android:textColor="#333"
                     android:paddingTop="4dp"/>
 
@@ -105,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_background"
                     android:textColor="#FFFFFF"
-                    android:text="Perfil"
+                    android:text="@string/perfil"
                     android:layout_gravity="end"
                     android:layout_marginTop="8dp" />
             </LinearLayout>
@@ -123,7 +125,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Configuración"
+                    android:text="@string/settings_card_title"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#E65100" />
@@ -131,7 +133,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ajusta tus preferencias y recordatorios."
+                    android:text="@string/ajusta_tus_preferencias_y_recordatorios"
                     android:textColor="#333"
                     android:paddingTop="4dp"/>
 
@@ -141,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_background"
                     android:textColor="#FFFFFF"
-                    android:text="Configuración"
+                    android:text="@string/settings_card_title"
                     android:layout_gravity="end"
                     android:layout_marginTop="8dp" />
             </LinearLayout>

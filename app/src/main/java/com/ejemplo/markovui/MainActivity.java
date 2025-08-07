@@ -99,6 +99,26 @@ public class MainActivity extends AppCompatActivity {
         btnSettings.setBackgroundResource(R.drawable.button_background);
         btnSettings.setTextColor(Color.WHITE);
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_about) {
+            Toast.makeText(this, "About selected", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == R.id.action_help) {
+            Toast.makeText(this, "Help selected", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
 
 

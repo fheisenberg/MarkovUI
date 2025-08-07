@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Markov UIs</string>
+    <string name="welcome_message">¡Bienvenido a Markov UIs!</string>
+    <string name="start_button">Iniciar</string>
+    <string name="settings_button">Configuración</string>
+    <string name="about_button">Acerca de</string>
+    <string name="exit_button">Salir</string>
+    <string name="settings_title">Configuración</string>
+    <string name="about_title">Acerca de Markov UIs</string>
+    <string name="version_info">Versión 1.0.0</string>
+    <string name="developer_info">Desarrollado por [Tu Nombre]</string>
+    <string name="exit_confirmation">¿Estás seguro de que quieres salir?</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="settings_description">Configura las opciones de la aplicación</string>
+    <string name="about_description">Información sobre la aplicación y el desarrollador</string>
+    <string name="help_title">Ayuda</string>
+    <string name="help_description">Esta aplicación te permite explorar y generar interfaces de usuario utilizando modelos de Markov.</string>
+    <string name="action_settings">Configuración</string>
+    <string name="action_about">Acerca de</string>
+    <string name="action_help">Ayuda</string>
+    <string name="action_exit">Salir</string>
+    <string name="toolbar_title">Markov UIs</string>
+    <string name="greeting_message">¡Bienvenido a Markov UIs!</string>
+    <string name="start_card_title">Inicio</string>
+    <string name="start_card_button">Inicio</string>
+
+    <string name="start_card_description">Comienza a explorar las interfaces generadas por modelos de Markov.</string>
+    <string name="settings_card_title">Configuración</string>
+    <string name="about">Acerca de</string>
+    <string name="help">Ayuda</string>
+    <string name="bienvenido_a_mirutina">¡Bienvenido a MiRutina!</string>
+    <string name="consulta_tu_resumen_diario_y_clima_actual">Consulta tu resumen diario y clima actual.</string>
+    <string name="perfil">Perfil</string>
+    <string name="revisa_tus_h_bitos_y_progreso_personal">Revisa tus hábitos y progreso personal.</string>
+    <string name="ajusta_tus_preferencias_y_recordatorios">Ajusta tus preferencias y recordatorios.</string>
+</resources>
