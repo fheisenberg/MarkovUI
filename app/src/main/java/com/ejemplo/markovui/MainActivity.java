@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
 
+
         btnHome = findViewById(R.id.btnHome);
         btnProfile = findViewById(R.id.btnProfile);
         btnSettings = findViewById(R.id.btnSettings);
@@ -67,23 +68,36 @@ public class MainActivity extends AppCompatActivity {
     private void resaltarBotonSiguienteProbable(String botonActual) {
         String siguiente = dbHelper.getMostProbableNextButton(botonActual);
 
-        btnHome.setBackgroundColor(Color.LTGRAY);
-        btnProfile.setBackgroundColor(Color.LTGRAY);
-        btnSettings.setBackgroundColor(Color.LTGRAY);
-
-        if (siguiente != null) {
+        resetButtonStyles();
+        if (siguiente == null) {
+            Toast.makeText(this, "No hay transiciones registradas desde " + botonActual, Toast.LENGTH_SHORT).show();
+        }else {
             switch (siguiente) {
                 case "Home":
-                    btnHome.setBackgroundColor(Color.YELLOW);
+                    btnHome.setBackgroundResource(R.drawable.button_background_light);
+                    btnHome.setTextColor(Color.BLACK);
                     break;
                 case "Profile":
-                    btnProfile.setBackgroundColor(Color.YELLOW);
+                    btnProfile.setBackgroundResource(R.drawable.button_background_light);
+                    btnProfile.setTextColor(Color.BLACK);
                     break;
                 case "Settings":
-                    btnSettings.setBackgroundColor(Color.YELLOW);
+                    btnSettings.setBackgroundResource(R.drawable.button_background_light);
+                    btnSettings.setTextColor(Color.BLACK);
                     break;
             }
         }
+    }
+
+    private void resetButtonStyles() {
+        btnHome.setBackgroundResource(R.drawable.button_background);
+        btnHome.setTextColor(Color.WHITE);
+
+        btnProfile.setBackgroundResource(R.drawable.button_background);
+        btnProfile.setTextColor(Color.WHITE);
+
+        btnSettings.setBackgroundResource(R.drawable.button_background);
+        btnSettings.setTextColor(Color.WHITE);
     }
 }
 
