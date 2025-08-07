@@ -2,7 +2,7 @@ package com.ejemplo.markovui;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -10,76 +10,77 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button btnHome, btnProfile, btnSettings;
     private MarkovDatabaseHelper dbHelper;
     private String lastState = null;
-
-    private Button btnHome;
-    private Button btnProfile;
-    private Button btnSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dbHelper = new MarkovDatabaseHelper(this);
-
         btnHome = findViewById(R.id.btnHome);
         btnProfile = findViewById(R.id.btnProfile);
         btnSettings = findViewById(R.id.btnSettings);
 
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Button clicked = (Button) v;
-                String currentState = clicked.getText().toString();
+        dbHelper = new MarkovDatabaseHelper(this);
 
-                if (lastState != null) {
-                    dbHelper.recordTransition(lastState, currentState);
-                    Toast.makeText(MainActivity.this,
-                            "Transición: " + lastState + " → " + currentState,
-                            Toast.LENGTH_SHORT).show();
-                }
+        btnHome.setOnClickListener(v -> {
+            handleTransition("Home");
+        });
 
-                lastState = currentState;
-                highlightNextButton(lastState);
-            }
-        };
+        btnProfile.setOnClickListener(v -> {
+            handleTransition("Profile");
+        });
 
-        btnHome.setOnClickListener(listener);
-        btnProfile.setOnClickListener(listener);
-        btnSettings.setOnClickListener(listener);
+        btnSettings.setOnClickListener(v -> {
+            handleTransition("Settings");
+        });
 
-        resetButtonStyles();
-    }
-
-    private void highlightNextButton(String currentButton) {
-        String next = dbHelper.getMostProbableNextButton(currentButton);
-        resetButtonStyles();
-
-        if (next != null) {
-            Button nextBtn = findButtonByName(next);
-            if (nextBtn != null) {
-                nextBtn.setBackgroundColor(Color.YELLOW);
+        // Opcional: si quieres iniciar resaltando desde el último estado conocido
+        if (dbHelper != null) {
+        String ultimoEstado = dbHelper.obtenerUltimoEstado();
+            if (ultimoEstado != null) {
+                resaltarBotonSiguienteProbable(ultimoEstado);
+                lastState = ultimoEstado;
+            }else{
+                Log.d("Markov", "No hay historial de navegación");
             }
         }
     }
 
-    private void resetButtonStyles() {
+    private void handleTransition(String currentState) {
+        if (lastState != null) {
+            dbHelper.recordTransition(lastState, currentState);
+            Toast.makeText(this, "Transición: " + lastState + " → " + currentState, Toast.LENGTH_SHORT).show();
+        }
+        lastState = currentState;
+        resaltarBotonSiguienteProbable(currentState);
+    }
+
+    private void resaltarBotonSiguienteProbable(String botonActual) {
+        String siguiente = dbHelper.getMostProbableNextButton(botonActual);
+
         btnHome.setBackgroundColor(Color.LTGRAY);
         btnProfile.setBackgroundColor(Color.LTGRAY);
         btnSettings.setBackgroundColor(Color.LTGRAY);
-    }
 
-    private Button findButtonByName(String name) {
-        switch (name) {
-            case "Home": return btnHome;
-            case "Profile": return btnProfile;
-            case "Settings": return btnSettings;
-            default: return null;
+        if (siguiente != null) {
+            switch (siguiente) {
+                case "Home":
+                    btnHome.setBackgroundColor(Color.YELLOW);
+                    break;
+                case "Profile":
+                    btnProfile.setBackgroundColor(Color.YELLOW);
+                    break;
+                case "Settings":
+                    btnSettings.setBackgroundColor(Color.YELLOW);
+                    break;
+            }
         }
     }
 }
+
 
 
 //package com.ejemplo.markovui;

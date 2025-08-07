@@ -4,6 +4,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.util.Log;
+
 public class MarkovDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "markov.db";
@@ -102,6 +104,30 @@ public class MarkovDatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return nextLabel;
+    }
+
+    public String obtenerUltimoEstado() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String ultimoEstado = null;
+
+        try {
+            Cursor cursor = db.rawQuery(
+                    "SELECT s.state_name FROM transitions t " +
+                            "JOIN states s ON t.to_state = s.id " +
+                            "ORDER BY t.rowid DESC LIMIT 1", null);
+
+            if (cursor != null && cursor.moveToFirst()) {
+                ultimoEstado = cursor.getString(0);
+            }
+
+            if (cursor != null) cursor.close();
+        } catch (Exception e) {
+            Log.e("DB_ERROR", "Error al obtener último estado: " + e.getMessage());
+        } finally {
+            db.close();
+        }
+
+        return ultimoEstado;
     }
 }
 //public class MarkovDatabaseHelper extends SQLiteOpenHelper {
