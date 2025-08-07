@@ -1,0 +1,11 @@
+HELP.md
+
+app/build/
+*.zip
+
+### IntelliJ IDEA ###
+.idea
+.gradle
+*.iws
+*.iml
+*.ipr
